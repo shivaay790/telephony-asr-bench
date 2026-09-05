@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabench"
+version = "0.1.0"
+description = "Measure ASR accuracy on telephony-band audio, not the clean wideband audio everyone benchmarks on"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Shivaay Dhondiyal", email = "shivaaydhondiyal23@gmail.com"}]
+dependencies = ["numpy>=1.22", "scipy>=1.9", "soundfile>=0.12"]
+
+[project.optional-dependencies]
+http = ["requests>=2.28"]
+local = ["faster-whisper>=1.0"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+tabench = "tabench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tabench*"]
